@@ -3,6 +3,13 @@ const app = express()
 const routeRefeicao = express.Router();
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, '')
+    }
+})
 
 const Refeicao = require('../models/Refeicao');
 
