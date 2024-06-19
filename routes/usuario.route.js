@@ -5,8 +5,6 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
 
-
-
 const Usuario = require('../models/Usuario')
 
 routeUsuario.post('/registrar', async(req, res) => {

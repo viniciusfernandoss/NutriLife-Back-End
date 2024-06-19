@@ -7,10 +7,12 @@ const app = express()
 
 const routeHome = require('./routes/home.route')
 const routeUsuario = require('./routes/usuario.route')
+const routeRefeicao = require('./routes/refeicao.route')
 
 app.use(bodyParser.json())
 app.use('/usuario', routeUsuario)
 app.use('/usuario', routeHome)
+app.use('/usuario', routeRefeicao)
 
 app.listen(3000,function(){
     console.log('Rodando na porta local 3000!')
