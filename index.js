@@ -3,7 +3,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('./config/database');
 const cors = require('cors');
-const uploadRoutes = require('./routes/uploadRoutes'); 
 
 const app = express();
 
@@ -21,7 +20,6 @@ const routeRefeicao = require('./routes/refeicao.route');
 app.use('/usuario', routeUsuario);
 app.use('/usuario', routeHome);
 app.use('/usuario', routeRefeicao);
-app.use('/api', uploadRoutes); 
 
 // Inicia o servidor
 app.listen(3000, function() {

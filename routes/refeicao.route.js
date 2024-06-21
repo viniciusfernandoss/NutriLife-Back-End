@@ -5,12 +5,6 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const multer = require('multer');
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, '')
-    }
-})
-
 const Refeicao = require('../models/Refeicao');
 
 // Middleware para verificar o token JWT
@@ -49,14 +43,14 @@ routeRefeicao.get('/listar-refeicoes', checkToken, async (req, res) => {
 // Rota protegida para criar refeição
 routeRefeicao.post('/criar-refeicao', checkToken, async (req, res) => {
     try {
-        const { nome, descricao, foto } = req.body;
+        const { nome, descricao } = req.body;
 
         // Validação
-        if (!nome || !descricao || !foto) {
+        if (!nome || !descricao) {
             return res.status(400).json({ error: 'Todos os campos são obrigatórios.' });
         }
 
-        const refeicao = new Refeicao({ nome, descricao, foto });
+        const refeicao = new Refeicao({ nome, descricao });
 
         const data = await refeicao.save();
         console.log(data);
