@@ -82,7 +82,7 @@ routeUsuario.post('/login', async (req, res) => {
     }
 });
 
-// Rota de logout (não é estritamente necessária para JWT, mas está aqui para referência)
+// Rota de logout (apenas para fins de demonstração)
 routeUsuario.post('/logout', (req, res) => {
     res.status(200).json({ msg: 'Logout realizado com sucesso' });
 });
